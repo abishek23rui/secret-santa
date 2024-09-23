@@ -32,7 +32,7 @@ async function main() {
         // Write the Assigned Secretchild to an Csv file
         ReadAndWriteFiles.writeSecretSantaAssignmentsToCsv(assignedList, 'outputFiles/serectChildOutputFile.csv');
 
-        console.log('Assigned Secretchild For All Employees successfully! Please Check Excel!');
+        console.log('Assigned Secretchild For All Employees successfully! Please Check Csv!');
 
     } catch (error) {
         console.error('Error:', error.message);
