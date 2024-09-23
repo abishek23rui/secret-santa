@@ -7,7 +7,6 @@ class AssignSerectChild {
     // Check if an assignment is valid
     isValidAssignment(employee, potentialChild) {
         if (employee.Employee_EmailID === potentialChild.Employee_EmailID) return false;
-        
         return !this.previousAssignments.some(               
             (assignment) =>
                 assignment.Employee_EmailID === employee.Employee_EmailID &&

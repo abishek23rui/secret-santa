@@ -22,7 +22,7 @@ This Node.js program generates Secret Santa assignments, ensuring that no employ
     npm run start
 
 
-Solution Flow :
+## Solution Flow :
 
 ReadAndWriteFiles Class:
     Responsible for reading and writing files.
@@ -37,8 +37,8 @@ AssignSerectChild Class:
     Contains isValidAssignment to check if an assignment is valid and generateAssignments to create the Secret Santa pairs.
 
 
-Error Test Cases Handled :
-    1.When the Employee list Csv Comes Empty
-    2.When the Employee list Csv Comes With 1 Employee
-    3.When the Previous Year Secret santa Files Comes empty (means it will generate new based on only not self assigning Condition)
+## Error Test Cases Handled :
+    1.When the Employee list Csv Comes Empty - test case files on "testCaseInputFiles/TestCase1.csv"
+    2.When the Employee list Csv Comes With 1 Employee - test case files on "testCaseInputFiles/TestCase2.csv"
+    3.When the Previous Year Secret santa Files Comes empty (means it will generate new based on only not self assigning Condition) - test case files on "testCaseInputFiles/TestCase1.csv"
     4.And When Input files not In the desired path
