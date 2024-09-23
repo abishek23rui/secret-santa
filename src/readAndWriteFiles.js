@@ -1,21 +1,30 @@
 const xlsx = require('xlsx');
+const Papa = require('papaparse');
+const fs = require('fs');
 
 class ReadAndWriteFiles {
-    // Read employees or previous assignments from an Excel file
-    static readExcelFile(filePath) {
-        const workbook = xlsx.readFile(filePath);
-        const sheetName = workbook.SheetNames[0];
-        const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
-        return data;
+
+    // Read employees or previous assignments from an Csv file
+    static readCsvFile(filePath) {
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const data = Papa.parse(fileContent, {
+            header: true, // Use first row as header
+            dynamicTyping: true // Automatically convert numeric values
+        });
+        return data.data;
     }
 
-    // Write Secret Santa Assignments to a new Excel file
-    static writeSecretSantaAssignmentsToExcel(assignments, outputPath) {
-        const worksheet = xlsx.utils.json_to_sheet(assignments);
-        const workbook = xlsx.utils.book_new();
-        xlsx.utils.book_append_sheet(workbook, worksheet, 'Secret Santa Assignments');
-        xlsx.writeFile(workbook, outputPath);
+    // Write Secret Santa Assignments to a new Csv file
+    static writeSecretSantaAssignmentsToCsv(assignments, outputPath) {
+        try {
+            const csv = Papa.unparse(assignments); // Convert JSON to CSV
+            fs.writeFileSync(outputPath, csv, 'utf8'); // Write to file
+            console.log(`File written successfully to ${outputPath}`);
+        } catch (error) {
+            console.error('Error writing to CSV file:', error);
+        }
     }
+    
 }
 
 module.exports = ReadAndWriteFiles;

@@ -7,7 +7,7 @@ async function main() {
     try {
         
         // Create EmployeeManager instance and read employees
-        const employeeList = new EmployeeManager('assets/Employee-List.xlsx');
+        const employeeList = new EmployeeManager('assets/Employee-List.csv');
         if (employeeList.employees.length === 0) {
             console.log('No employees found. Please provide a valid employee list.');
             return;
@@ -17,7 +17,7 @@ async function main() {
         }
 
         // Read previous Year Assigned Data from Excel File
-        const previousAssignmentsData = ReadAndWriteFiles.readExcelFile('assets/Secret-Santa-Game-Result-2023.xlsx');
+        const previousAssignmentsData = ReadAndWriteFiles.readCsvFile('assets/Secret-Santa-Game-Result-2023.csv');
         const previousAssignedData = previousAssignmentsData.map(row => ({
             Employee_Name: row.Employee_Name,
             Employee_EmailID: row.Employee_EmailID,
@@ -30,7 +30,7 @@ async function main() {
         const assignedList = assignmentManager.generateAssignments();
 
         // Write the Assigned Secretchild to an Excel file
-        ReadAndWriteFiles.writeSecretSantaAssignmentsToExcel(assignedList, 'outputFiles/serectChildOutputFile.xlsx');
+        ReadAndWriteFiles.writeSecretSantaAssignmentsToCsv(assignedList, 'outputFiles/serectChildOutputFile.csv');
 
         console.log('Assigned Secretchild For All Employees successfully! Please Check Excel!');
 
