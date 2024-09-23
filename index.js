@@ -29,7 +29,7 @@ async function main() {
         const assignmentManager = new AssignSerectChild(employeeList.employees, previousAssignedData);
         const assignedList = assignmentManager.generateAssignments();
 
-        // Write the Assigned Secretchild to an Excel file
+        // Write the Assigned Secretchild to an Csv file
         ReadAndWriteFiles.writeSecretSantaAssignmentsToCsv(assignedList, 'outputFiles/serectChildOutputFile.csv');
 
         console.log('Assigned Secretchild For All Employees successfully! Please Check Excel!');
