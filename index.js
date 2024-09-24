@@ -17,7 +17,7 @@ async function main() {
         }
 
         // Read previous Year Assigned Data from Excel File
-        const previousAssignmentsData = ReadAndWriteFiles.readCsvFile('testCaseInput/TestCase2.csv');
+        const previousAssignmentsData = ReadAndWriteFiles.readCsvFile('assets/Secret-Santa-Game-Result-2023.csv');
         const previousAssignedData = previousAssignmentsData.map(row => ({
             Employee_Name: row.Employee_Name,
             Employee_EmailID: row.Employee_EmailID,
